@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offre Exclusive Opera GX - France</title>
+    <title>Offre Exclusive Opera GX</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        body { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; color: white; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        /* CSS de secours si Tailwind est bloqué par le navigateur */
+        body { background-color: #0f172a; color: white; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; font-family: sans-serif; }
+        .glass { background: #1e293b; padding: 2rem; border-radius: 1.5rem; width: 90%; max-width: 400px; text-align: center; border: 1px solid #334155; }
         .step { display: none; }
-        .step.active { display: block; animation: fadeInRight 0.4s ease-out; }
-        .progress-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; background: #ef4444; width: 0%; transition: width 0.4s ease; }
-        .btn-option { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
-        .btn-option:hover { background: rgba(239, 68, 68, 0.1); border-color: #ef4444; transform: translateY(-2px); }
+        .step.active { display: block; }
+        .btn-red { background: #ef4444; color: white; border: none; padding: 1rem; width: 100%; border-radius: 0.75rem; font-weight: bold; cursor: pointer; margin-top: 1rem; }
+        .progress-bar { height: 6px; background: #334155; border-radius: 10px; margin-bottom: 2rem; }
+        .progress-fill { height: 100%; background: #ef4444; width: 0%; transition: width 0.4s; }
     </style>
 </head>
 <body class="p-4" oncontextmenu="return false;">
