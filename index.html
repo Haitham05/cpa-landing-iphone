@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concours Exclusif 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+        .step { display: none; }
+        .step.active { display: block; animation: fadeInRight 0.5s; }
+        .progress-bar { height: 8px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #4f46e5; width: 0%; transition: width 0.3s; }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="glass max-w-md w-full p-8 text-center animate__animated animate__fadeIn">
+        <div class="mb-6">
+            <h2 class="text-indigo-600 font-bold text-sm uppercase tracking-widest mb-2">Offre Limitée</h2>
+            <div class="progress-bar mb-4"><div class="progress-fill" id="progress"></div></div>
+        </div>
+
+        <div class="step active" id="step1">
+            <img src="https://via.placeholder.com/400x200?text=PROMO+IMAGE" class="w-full rounded-lg mb-6 shadow-md">
+            <h1 class="text-2xl font-extrabold text-gray-800 mb-4">Gagnez un Bon d'Achat de 500€ !</h1>
+            <p class="text-gray-600 mb-8">Répondez à 3 questions rapides pour vérifier votre éligibilité au tirage au sort d'aujourd'hui.</p>
+            <button onclick="nextStep(1, 33)" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg">COMMENCER</button>
+        </div>
+
+        <div class="step" id="step2">
+            <h3 class="text-xl font-bold mb-6">Êtes-vous résident en France ?</h3>
+            <div class="grid grid-cols-1 gap-4">
+                <button onclick="nextStep(2, 66)" class="border-2 border-gray-200 hover:border-indigo-500 p-4 rounded-xl font-medium transition">OUI</button>
+                <button onclick="nextStep(2, 66)" class="border-2 border-gray-200 hover:border-indigo-500 p-4 rounded-xl font-medium transition">NON</button>
+            </div>
+        </div>
+
+        <div class="step" id="step3">
+            <h3 class="text-xl font-bold mb-6">Comment avez-vous entendu parler de nous ?</h3>
+            <div class="grid grid-cols-1 gap-4">
+                <button onclick="nextStep(3, 100)" class="border-2 border-gray-200 hover:border-indigo-500 p-4 rounded-xl font-medium transition">Facebook / Instagram</button>
+                <button onclick="nextStep(3, 100)" class="border-2 border-gray-200 hover:border-indigo-500 p-4 rounded-xl font-medium transition">Ami / Famille</button>
+            </div>
+        </div>
+
+        <div class="step" id="step4">
+            <div class="flex flex-col items-center">
+                <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-600 mb-4"></div>
+                <p class="text-lg font-bold text-gray-700" id="status-text">Analyse des réponses...</p>
+            </div>
+        </div>
+
+        <div class="step" id="step5">
+            <div class="bg-green-100 text-green-700 p-4 rounded-lg mb-6 font-bold">FÉLICITATIONS ! STOCK DISPONIBLE</div>
+            <h3 class="text-2xl font-bold mb-4">Vous êtes éligible !</h3>
+            <p class="text-gray-600 mb-8">Cliquez sur le bouton ci-dessous pour finaliser votre inscription sur la page officielle.</p>
+            <a href="TON_LIEN_CPAGRIP_ICI" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl transition duration-300 shadow-lg text-lg">RÉCLAMER MON PRIX</a>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-gray-100 text-left">
+            <p class="text-xs text-gray-400 italic font-medium mb-2">Commentaires récents :</p>
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-full bg-gray-200"></div>
+                <p class="text-xs text-gray-600"><strong>Julie D.</strong> : Je viens de recevoir mon code par mail, merci !</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(current, progress) {
+            document.getElementById('step' + current).classList.remove('active');
+            document.getElementById('step' + (current + 1)).classList.add('active');
+            document.getElementById('progress').style.width = progress + '%';
+            
+            if(current === 3) {
+                setTimeout(() => { document.getElementById('status-text').innerText = "Vérification des stocks..."; }, 1000);
+                setTimeout(() => { document.getElementById('status-text').innerText = "Succès !"; nextStep(4, 100); }, 2500);
+            }
+        }
+    </script>
+</body>
+</html>
